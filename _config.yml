@@ -45,12 +45,14 @@ projects:
   # youtube: your_username
 
 topics:
-  - name: CSS
-    web_url: https://github.com/topics/css
-    image_url: https://raw.githubusercontent.com/github/explore/6c6508f34230f0ac0d49e847a326429eefbfc030/topics/css/css.png
+  - name: RNAcentral
+    web_url: https://rnacentral.org
+    image_url: https://rnacentral.org/static/img/logo/rnacentral-logo.png
 
-  - name: Web design
+  - name: Rfam
+    web_url: http://rfam.org
+    image_url: https://raw.githubusercontent.com/Rfam/rfam-docs/master/docs/source/images/rfam.ico
 
-  - name: Sass
-    web_url: https://github.com/topics/sass
-    image_url: https://raw.githubusercontent.com/github/explore/6c6508f34230f0ac0d49e847a326429eefbfc030/topics/sass/sass.png
+  - name: RNA 3D Hub
+    web_url: http://rna.bgsu.edu/rna3dhub
+    image_url: https://pbs.twimg.com/profile_images/1832011010/logo_400x400.png
