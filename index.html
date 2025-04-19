@@ -2,11 +2,51 @@
 <html>
 
 <head>
-	<title>Anton Petrov, PhD</title>
+	<title>Anton Petrov | RNA Bioinformatics</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<link rel="icon" type="image/png" href="images/favicon.png" />
+	<style>
+		#main {
+			padding-top: 4em;
+		}
+
+		h1 {
+			margin-bottom: 0.5em;
+		}
+
+		.counter-item {
+			background: #fff;
+			padding: 1em;
+			border-radius: 8px;
+			box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+			width: 200px;
+			text-align: center;
+			transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+		}
+
+		.counter-item:hover {
+			transform: scale(1.05); /* Slightly grow the square */
+			box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Add a stronger shadow */
+		}
+
+		.counter-item h3 {
+			font-size: 2em;
+			color: #333;
+			margin: 0;
+		}
+
+		.counter-item p {
+			font-size: 1em;
+			color: #666;
+			margin: 0.5em 0 0;
+		}
+
+		#impact {
+			background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+		}
+	</style>
 </head>
 
 <body class="is-preload">
@@ -27,35 +67,66 @@
 	<div id="main">
 
 		<section id="summary">
-			<h2>Hello 👋</h2>
+			<h1>At the intersection of RNA science and tech</h1>
+			<h2>Background</h2>
 
 			<p>
-				I am a bioinformatician with over 15 years of experience analysing non-coding RNA. During my PhD in the <a href="http://rna.bgsu.edu">Leontis-Zirbel lab</a> at BGSU I developed <a href="http://rna.bgsu.edu/rna3dhub/motifs">RNA 3D Motif Atlas</a>, an automatic classification of RNA 3D motifs, and contributed to several databases and web apps for RNA 3D structure analysis, including <a href="http://rna.bgsu.edu/rna3dhub/">RNA 3D Hub</a>, <a href="http://rna.bgsu.edu/webfr3d">WebFR3D</a>, <a href="http://rna.bgsu.edu/jar3d">JAR3D</a>, and <a href="http://rna.bgsu.edu/r3dalign/">R3D Align</a>.
+				For over 15 years, I’ve worked across RNA research, bioinformatics, and software development, building tools that support the global RNA community. During my PhD in the <a href="http://rna.bgsu.edu">Leontis-Zirbel lab</a> at Bowling Green State University, I developed the <a href="http://rna.bgsu.edu/rna3dhub/motifs">RNA 3D Motif Atlas</a>, an automated classification system for RNA 3D motifs, and contributed to several tools and databases for RNA 3D structure analysis, including <a href="http://rna.bgsu.edu/rna3dhub/">RNA 3D Hub</a>, <a href="http://rna.bgsu.edu/webfr3d">WebFR3D</a>, <a href="http://rna.bgsu.edu/jar3d">JAR3D</a>, and <a href="http://rna.bgsu.edu/r3dalign/">R3D Align</a>.
 			</p>
 
 			<p>
-				After my PhD, I worked at the European Bioinformatics Institute (<a href="https://www.ebi.ac.uk/">EMBL-EBI</a>) as Bioinformatician and Project Leader. I established <a href="https://rnacentral.org">RNAcentral</a> and led a team responsible for the development of <a href="https://rfam.org">Rfam</a>. I also created <a href="https://r2dt.bio">R2DT</a>, the first method for automatic visualisation of RNA secondary structure in standard, community-accepted layouts.
+				Following my PhD, I joined the European Bioinformatics Institute (<a href="https://www.ebi.ac.uk/">EMBL-EBI</a>), where I served as a Bioinformatician and later as a Project Leader. There, I established <a href="https://rnacentral.org">RNAcentral</a> and led the team behind <a href="https://rfam.org">Rfam</a>. I also created <a href="https://r2dt.bio">R2DT</a>, the first method for automatic visualisation of RNA secondary structure in consistent, reproducible, and recogniseable layouts.
 			</p>
 
 			<p>
-				After 9 years at EBI I worked on developing drugs targeting RNA at Ladder Therapeutics (now <a href="https://serna.bio">Serna Bio</a>). Currently I provide consulting services in the area of RNA bioinformatics via my company, <a href="https://riboscope.org">Riboscope Ltd</a>.
+				After nine years at EBI, I moved to RNA therapeutics and worked at Ladder Tx (now <a href="https://serna.bio">Serna Bio</a>). Today, I provide RNA bioinformatics consulting through my company, <a href="https://riboscope.org">Riboscope Ltd</a>.
 			</p>
 
-			<h3>Open to work 👨‍💻</h3>
+			<h3>Open to Work</h3>
 			<p>
-				I am open to work opportunities and collaborations, and I am happy to provide <strong><a href="./consulting.html">consulting services</a></strong> via my company.
+				I am open to new opportunities and collaborations, and I am happy to offer <strong><a href="./consulting.html">consulting services</a></strong> through Riboscope Ltd.
 				<br/>
 				<a style="margin-top: 20px;" href="mailto:contact@antonpetrov.com" class="button primary">Get in touch &rarr;</a>
 			</p>
 		</section>
 
+		<section id="impact" style="background: #f4f4f4; padding: 2em 0; text-align: center;">
+			<h2>Impact</h2>
+			<div style="display: flex; justify-content: center; gap: 2em; flex-wrap: wrap;">
+				<div class="counter-item">
+					<h3><span class="counter" data-target="2000000">0</span>+</h3>
+					<p>Research funding secured (£)</p>
+				</div>
+				<div class="counter-item">
+					<h3><span class="counter" data-target="4400">0</span>+</h3>
+					<p>Citations across publications</p>
+				</div>
+				<div class="counter-item">
+					<h3><span class="counter" data-target="30">0</span>+</h3>
+					<p>Peer-reviewed publications</p>
+				</div>
+				<div class="counter-item">
+					<h3><span class="counter" data-target="120">0</span>+</h3>
+					<p>Peer reviews for 20+ journals</p>
+				</div>
+				<div class="counter-item">
+					<h3><span class="counter" data-target="80000">0</span>+</h3>
+					<p>Annual users of RNAcentral & Rfam</p>
+				</div>
+				<div class="counter-item">
+					<h3><span class="counter" data-target="10">0</span>+</h3>
+					<p>Major databases adopting R2DT</p>
+				</div>
+			</div>
+		</section>
+
 		<section id="my-projects">
 			<section>
-				<h2>My Projects 🛠️</h2>
+				<h2>My Projects</h2>
 				<div class="row">
 					<article class="col-6 col-12-xsmall work-item grow">
 						<a href="https://r2dt.bio" class="image fit thumb">
-							<img src="images/r2dt.png" alt="" />
+							<img src="https://docs.r2dt.bio/en/latest/_images/release-2.0.png" alt="" />
 						</a>
 						<h3><a href="https://r2dt.bio">R2DT</a></h3>
 						<p>R2DT predicts and visualises RNA secondary structure in consistent, reproducible, and
@@ -91,7 +162,7 @@
 					<li>Follow on <a href="https://bsky.app/profile/antonipetrov.bsky.social">Bluesky</a> or <a href="https://x.com/AntonIPetrov">Twitter</a></li>
 					<li>Connect on <a href="https://www.linkedin.com/in/aipetrov/">LinkedIn</a></li>
 					<li>Sign up for updates on <a href="https://scholar.google.com/citations?user=PDdl6OcAAAAJ&hl=en">Google Scholar</a></li>
-					<li>Reach out by <a mailto="contact@antonpetrov.com">email</a></li>
+					<li>Reach out by <a href="mailto:apetrov@riboscope.com">email</a></li>
 				</ul>
 			</section>
 		</section>
@@ -102,6 +173,11 @@
 	<footer id="footer">
 		<div class="inner" style="text-align: center;">
 			<ul class="icons">
+				<li>
+					<a href="https://bsky.app/profile/antonipetrov.bsky.social" class="icon">
+						<img style="width:20px; height:20px; opacity: 50%;" src="images/bluesky.png">
+						<span class="label">Bluesky</span></a>
+				</li>
 				<li><a href="https://twitter.com/antonipetrov" class="icon brands fa-twitter"><span
 							class="label">Twitter</span></a></li>
 				<li><a href="https://www.linkedin.com/in/aipetrov/" class="icon brands fa-linkedin"><span
@@ -152,6 +228,25 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
+	<script>
+		// Animate counters
+		const counters = document.querySelectorAll('.counter');
+		counters.forEach(counter => {
+			const updateCounter = () => {
+				const target = +counter.getAttribute('data-target');
+				const count = +counter.innerText;
+				const increment = target / 200; // Adjust speed here
+
+				if (count < target) {
+					counter.innerText = Math.ceil(count + increment);
+					setTimeout(updateCounter, 10);
+				} else {
+					counter.innerText = target.toLocaleString(); // Format numbers
+				}
+			};
+			updateCounter();
+		});
+	</script>
 </body>
 
 </html>
