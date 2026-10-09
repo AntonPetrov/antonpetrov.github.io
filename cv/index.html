@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+	<title>CV | Anton Petrov</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="robots" content="noindex" />
+	<!-- antonpetrov.com/cv is the stable link to the CV: to move the CV, change the URL here and on the button below -->
+	<meta http-equiv="refresh" content="0; url=https://docs.google.com/document/d/1p2DsXA3biGfvrKDi6eU8SyZKswFEjqNDtRwFaXmZ83c/export?format=pdf" />
+	<link rel="stylesheet" href="/assets/css/main.css" />
+
+	<link rel="icon" type="image/png" href="/images/favicon/favicon-96x96.png" sizes="96x96" />
+	<link rel="icon" type="image/svg+xml" href="/images/favicon/favicon.svg" />
+	<link rel="shortcut icon" href="/images/favicon/favicon.ico" />
+	<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png" />
+
+	<style>
+		#main {
+			padding-top: 4em;
+		}
+
+		/* Sidebar: the RNera Bio gradient (same colours and slow drift as rnera.bio) behind the RNA drawing */
+		#header,
+		body.is-touch #header {
+			background-color: #19678a;
+			background-image: url(/images/animate.svg), linear-gradient(135deg, #19678a, #2f7fa5, #235c66, #102c3c, #364966, #19678a);
+			background-repeat: no-repeat;
+			background-size: auto, 400% 400%;
+			background-position: left top, 50% 0%;
+			animation: gradientFlow 20s ease-in-out infinite;
+		}
+
+		/* Same loop as rnera.bio, started from its lightest point */
+		@keyframes gradientFlow {
+			0% {
+				background-position: left top, 50% 0%;
+			}
+
+			25% {
+				background-position: left top, 0% 50%;
+			}
+
+			50% {
+				background-position: left top, 50% 100%;
+			}
+
+			75% {
+				background-position: left top, 100% 50%;
+			}
+
+			100% {
+				background-position: left top, 50% 0%;
+			}
+		}
+
+		@media (prefers-reduced-motion: reduce) {
+			#header,
+			body.is-touch #header {
+				animation: none;
+			}
+		}
+
+		/* Keep the two roles on separate lines on small screens, where the template hides line breaks in headings */
+		#header h4 br {
+			display: inline;
+		}
+
+		.image img {
+			height: auto;
+		}
+	</style>
+</head>
+
+<body class="is-preload">
+
+	<!-- Header -->
+	<header id="header">
+		<div class="inner" style="background-color: rgba(0, 0, 0, 0.5); text-align:center; padding-top: 20px; padding-bottom: 20px;">
+			<a href="/" class="image avatar"><img src="/images/anton-petrov.jpg" alt="Anton Petrov" width="627" height="627" />
+			</a>
+			<h1><strong>Anton Petrov, PhD</strong></h1>
+			<h4>RNA Bioinformatician <br> Co-founder, <a href="https://rnera.bio">RNera Bio</a></h4>
+		</div>
+	</header>
+
+	<!-- Main -->
+	<div id="main">
+
+		<section>
+			<h2>Curriculum Vitae</h2>
+			<p>
+				The download should start in a moment.
+				<br/>
+				<a style="margin-top: 20px;" href="https://docs.google.com/document/d/1p2DsXA3biGfvrKDi6eU8SyZKswFEjqNDtRwFaXmZ83c/export?format=pdf" class="button primary">Download CV</a>
+				<a style="margin-top: 20px;" href="/" class="button">Back to the homepage &rarr;</a>
+			</p>
+		</section>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="/assets/js/main.js"></script>
+</body>
+
+</html>

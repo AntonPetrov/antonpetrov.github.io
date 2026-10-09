@@ -1,11 +1,24 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
 
 <head>
 	<title>Anton Petrov | RNA Bioinformatics</title>
 	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="description" content="Anton Petrov, PhD: RNA bioinformatician and co-founder of RNera Bio. Created R2DT, established RNAcentral, and led the Rfam team at EMBL-EBI." />
+	<link rel="canonical" href="https://antonpetrov.com/" />
 	<link rel="stylesheet" href="assets/css/main.css" />
+
+	<meta property="og:type" content="website" />
+	<meta property="og:site_name" content="Anton Petrov" />
+	<meta property="og:title" content="Anton Petrov | RNA Bioinformatics" />
+	<meta property="og:description" content="RNA bioinformatician and co-founder of RNera Bio. Created R2DT, established RNAcentral, and led the Rfam team at EMBL-EBI." />
+	<meta property="og:url" content="https://antonpetrov.com/" />
+	<meta property="og:image" content="https://antonpetrov.com/images/anton-petrov.jpg" />
+	<meta property="og:image:width" content="627" />
+	<meta property="og:image:height" content="627" />
+	<meta property="og:image:alt" content="Anton Petrov" />
+	<meta name="twitter:card" content="summary" />
 
 	<link rel="icon" type="image/png" href="images/favicon/favicon-96x96.png" sizes="96x96" />
 	<link rel="icon" type="image/svg+xml" href="images/favicon/favicon.svg" />
@@ -14,13 +27,102 @@
 	<meta name="apple-mobile-web-app-title" content="Anton Petrov" />
 	<link rel="manifest" href="images/favicon/site.webmanifest" />
 
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "Person",
+		"name": "Anton Petrov",
+		"honorificSuffix": "PhD",
+		"url": "https://antonpetrov.com/",
+		"image": "https://antonpetrov.com/images/anton-petrov.jpg",
+		"jobTitle": "Co-founder",
+		"worksFor": {
+			"@type": "Organization",
+			"name": "RNera Bio",
+			"url": "https://rnera.bio/"
+		},
+		"alumniOf": {
+			"@type": "CollegeOrUniversity",
+			"name": "Bowling Green State University"
+		},
+		"knowsAbout": ["RNA bioinformatics", "Non-coding RNA", "RNA secondary structure", "RNA 3D structure"],
+		"sameAs": [
+			"https://orcid.org/0000-0001-7279-2682",
+			"https://scholar.google.com/citations?user=PDdl6OcAAAAJ",
+			"https://www.linkedin.com/in/aipetrov/",
+			"https://github.com/antonpetrov",
+			"https://bsky.app/profile/antonipetrov.bsky.social",
+			"https://x.com/AntonIPetrov",
+			"https://www.webofscience.com/wos/author/record/779"
+		]
+	}
+	</script>
+
 	<style>
 		#main {
 			padding-top: 4em;
 		}
 
-		h1 {
+		/* Sidebar: the RNera Bio gradient (same colours and slow drift as rnera.bio) behind the RNA drawing */
+		#header,
+		body.is-touch #header {
+			background-color: #19678a;
+			background-image: url(images/animate.svg), linear-gradient(135deg, #19678a, #2f7fa5, #235c66, #102c3c, #364966, #19678a);
+			background-repeat: no-repeat;
+			background-size: auto, 400% 400%;
+			background-position: left top, 50% 0%;
+			animation: gradientFlow 20s ease-in-out infinite;
+		}
+
+		/* Same loop as rnera.bio, started from its lightest point */
+		@keyframes gradientFlow {
+			0% {
+				background-position: left top, 50% 0%;
+			}
+
+			25% {
+				background-position: left top, 0% 50%;
+			}
+
+			50% {
+				background-position: left top, 50% 100%;
+			}
+
+			75% {
+				background-position: left top, 100% 50%;
+			}
+
+			100% {
+				background-position: left top, 50% 0%;
+			}
+		}
+
+		@media (prefers-reduced-motion: reduce) {
+			#header,
+			body.is-touch #header {
+				animation: none;
+			}
+		}
+
+		/* Keep the two roles on separate lines on small screens, where the template hides line breaks in headings */
+		#header h4 br {
+			display: inline;
+		}
+
+		/* The tagline sits one heading level below the name in the header but keeps the larger size */
+		#summary h2 {
+			font-size: 2em;
 			margin-bottom: 0.5em;
+		}
+
+		@media screen and (max-width: 736px) {
+			#summary h2 {
+				font-size: 1.5em;
+			}
+		}
+
+		.image img {
+			height: auto;
 		}
 
 		.counter-item {
@@ -31,6 +133,11 @@
 			width: 200px;
 			text-align: center;
 			transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+		}
+
+		/* Counters that link to their public source */
+		a.counter-item {
+			border-bottom: 0;
 		}
 
 		.counter-item:hover {
@@ -50,8 +157,11 @@
 			margin: 0.5em 0 0;
 		}
 
-		#impact {
-			background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+		/* Inline brand icons, sized and aligned like the icon font they replace */
+		#footer .icons svg.brand {
+			fill: currentColor;
+			height: 1.5em;
+			vertical-align: -0.1875em;
 		}
 	</style>
 </head>
@@ -59,14 +169,13 @@
 <body class="is-preload">
 
 	<!-- Header -->
-	<header id="header"
-		style="background: url(images/animate.svg) no-repeat, url(images/bg.jpg) repeat; background-size: auto auto;">
+	<header id="header">
 		<div class="inner" style="background-color: rgba(0, 0, 0, 0.5); text-align:center; padding-top: 20px; padding-bottom: 20px;">
-			<a href="./index.html" class="image avatar"><img src="images/anton-petrov.png" alt="Anton Petrov" />
+			<a href="./" class="image avatar"><img src="images/anton-petrov.jpg" alt="Anton Petrov" width="627" height="627" />
 			</a>
 			<h1><strong>Anton Petrov, PhD</strong></h1>
-			<h4>RNA Bionformatician <br> Director, <a href="https://riboscope.com">Riboscope Ltd</a></h4>
-			<a href="https://bit.ly/anton-petrov-cv-pdf" class="button"><strong>Download CV</strong></a>
+			<h4>RNA Bioinformatician <br> Co-founder, <a href="https://rnera.bio">RNera Bio</a></h4>
+			<a href="cv/" class="button"><strong>Download CV</strong></a>
 		</div>
 	</header>
 
@@ -74,54 +183,45 @@
 	<div id="main">
 
 		<section id="summary">
-			<h1>At the intersection of RNA science and tech</h1>
-			<h2>Background</h2>
+			<h2>At the intersection of RNA science and tech</h2>
 
 			<p>
-				For over 15 years, I’ve worked across RNA research, bioinformatics, and software development, building tools that support the global RNA community. During my PhD in the <a href="http://rna.bgsu.edu">Leontis-Zirbel lab</a> at Bowling Green State University, I developed the <a href="http://rna.bgsu.edu/rna3dhub/motifs">RNA 3D Motif Atlas</a>, an automated classification system for RNA 3D motifs, and contributed to several tools and databases for RNA 3D structure analysis, including <a href="http://rna.bgsu.edu/rna3dhub/">RNA 3D Hub</a>, <a href="http://rna.bgsu.edu/webfr3d">WebFR3D</a>, <a href="http://rna.bgsu.edu/jar3d">JAR3D</a>, and <a href="http://rna.bgsu.edu/r3dalign/">R3D Align</a>.
+				For over 15 years, I’ve worked across RNA research, bioinformatics, and software development, building tools that support the global RNA community. During my PhD in the <a href="https://rna.bgsu.edu">Leontis-Zirbel lab</a> at Bowling Green State University, I developed the <a href="https://rna.bgsu.edu/rna3dhub/motifs">RNA 3D Motif Atlas</a>, an automated classification system for RNA 3D motifs, and contributed to several tools and databases for RNA 3D structure analysis, including <a href="https://rna.bgsu.edu/rna3dhub/">RNA 3D Hub</a>, <a href="https://rna.bgsu.edu/webfr3d">WebFR3D</a>, <a href="https://rna.bgsu.edu/jar3d">JAR3D</a>, and <a href="https://doi.org/10.1093/nar/gkt417">R3D Align</a>.
 			</p>
 
 			<p>
-				Following my PhD, I joined the European Bioinformatics Institute (<a href="https://www.ebi.ac.uk/">EMBL-EBI</a>), where I served as a Bioinformatician and later as a Project Leader. There, I established <a href="https://rnacentral.org">RNAcentral</a> and led the team behind <a href="https://rfam.org">Rfam</a>. I also created <a href="https://r2dt.bio">R2DT</a>, the first method for automatic visualisation of RNA secondary structure in consistent, reproducible, and recogniseable layouts.
+				Following my PhD, I joined the European Bioinformatics Institute (<a href="https://www.ebi.ac.uk/">EMBL-EBI</a>), where I served as a Bioinformatician and later as a Project Leader. There, I established <a href="https://rnacentral.org">RNAcentral</a> and led the team behind <a href="https://rfam.org">Rfam</a>. I also created <a href="https://r2dt.bio">R2DT</a>, the first method for automatic visualisation of RNA secondary structure in consistent, reproducible, and recognisable layouts.
 			</p>
 
 			<p>
-				After nine years at EBI, I moved to RNA therapeutics and worked at Ladder Tx (now <a href="https://serna.bio">Serna Bio</a>). Today, I provide RNA bioinformatics consulting through my company, <a href="https://riboscope.com">Riboscope Ltd</a>.
-			</p>
-
-			<h3>Open to Work</h3>
-			<p>
-				I am open to new opportunities and collaborations, and I am happy to offer <strong><a href="./consulting.html">consulting services</a></strong> through Riboscope Ltd.
-				<br/>
-				<a style="margin-top: 20px;" href="mailto:apetrov@riboscope.com" class="button primary">Get in touch &rarr;</a>
+				After nine years at EBI, I founded <a href="https://riboscope.com">Riboscope Ltd</a>, an RNA bioinformatics consultancy that I ran for four years. Today, I am a co-founder of <a href="https://rnera.bio">RNera Bio</a>.
 			</p>
 		</section>
 
-		<section id="impact" style="background: #f4f4f4; padding: 2em 0; text-align: center;">
-			<h2>Impact</h2>
+		<section id="impact" aria-label="Impact" style="background: #f4f4f4; padding: 2em 0; text-align: center;">
 			<div style="display: flex; justify-content: center; gap: 2em; flex-wrap: wrap;">
 				<div class="counter-item">
-					<h3><span class="counter" data-target="2000000">0</span>+</h3>
-					<p>Research funding secured (£)</p>
+					<h3>£<span class="counter" data-target="2">2</span>M+</h3>
+					<p>Research funding secured</p>
 				</div>
-				<div class="counter-item">
-					<h3><span class="counter" data-target="4400">0</span>+</h3>
+				<a class="counter-item" href="https://scholar.google.com/citations?user=PDdl6OcAAAAJ&amp;hl=en">
+					<h3><span class="counter" data-target="5800">5,800</span>+</h3>
 					<p>Citations across publications</p>
-				</div>
-				<div class="counter-item">
-					<h3><span class="counter" data-target="30">0</span>+</h3>
+				</a>
+				<a class="counter-item" href="https://scholar.google.com/citations?user=PDdl6OcAAAAJ&amp;hl=en">
+					<h3><span class="counter" data-target="30">30</span>+</h3>
 					<p>Peer-reviewed publications</p>
-				</div>
-				<div class="counter-item">
-					<h3><span class="counter" data-target="120">0</span>+</h3>
+				</a>
+				<a class="counter-item" href="https://www.webofscience.com/wos/author/record/779">
+					<h3><span class="counter" data-target="120">120</span>+</h3>
 					<p>Peer reviews for 20+ journals</p>
+				</a>
+				<div class="counter-item">
+					<h3><span class="counter" data-target="80000">80,000</span>+</h3>
+					<p>Annual users of RNAcentral &amp; Rfam</p>
 				</div>
 				<div class="counter-item">
-					<h3><span class="counter" data-target="80000">0</span>+</h3>
-					<p>Annual users of RNAcentral & Rfam</p>
-				</div>
-				<div class="counter-item">
-					<h3><span class="counter" data-target="10">0</span>+</h3>
+					<h3><span class="counter" data-target="10">10</span>+</h3>
 					<p>Major databases adopting R2DT</p>
 				</div>
 			</div>
@@ -131,30 +231,43 @@
 			<section>
 				<h2>My Projects</h2>
 				<div class="row">
-					<article class="col-6 col-12-xsmall work-item grow">
+					<article class="col-4 col-6-small col-12-xsmall work-item grow">
+						<a href="https://rnera.bio" class="image fit thumb"><img src="images/rnera.webp"
+								alt="RNera Bio logo" width="1000" height="601" loading="lazy" /></a>
+						<h3><a href="https://rnera.bio">RNera Bio</a></h3>
+						<p>RNera Bio is the company I co-founded. More details coming soon</p>
+					</article>
+					<article class="col-4 col-6-small col-12-xsmall work-item grow">
 						<a href="https://r2dt.bio" class="image fit thumb">
-							<img src="https://docs.r2dt.bio/en/latest/_images/release-2.0.png" alt="" />
+							<img src="images/r2dt.webp" alt="RNA secondary structure diagrams drawn by R2DT" width="1000" height="601" loading="lazy" />
 						</a>
 						<h3><a href="https://r2dt.bio">R2DT</a></h3>
 						<p>R2DT predicts and visualises RNA secondary structure in consistent, reproducible, and
-							recogniseable layouts</p>
+							recognisable layouts</p>
 					</article>
-					<article class="col-6 col-12-xsmall work-item grow">
-						<a href="https://rnacentral.org/static/img/expert-databases.png" class="image fit thumb"><img
-								src="images/expert-databases.png" alt="" /></a>
+					<article class="col-4 col-6-small col-12-xsmall work-item grow">
+						<a href="https://riboscope.com" class="image fit thumb"><img src="images/riboscope.webp"
+								alt="Riboscope submarine illustration" width="1000" height="601" loading="lazy" /></a>
+						<h3><a href="https://riboscope.com">Riboscope</a></h3>
+						<p>Riboscope is the RNA bioinformatics consultancy that I founded in 2022 and ran for four years,
+							building custom pipelines, tools, and web applications for biotech startups</p>
+					</article>
+					<article class="col-4 col-6-small col-12-xsmall work-item grow">
+						<a href="https://rnacentral.org" class="image fit thumb"><img
+								src="images/rnacentral.webp" alt="Expert databases integrated into RNAcentral" width="1000" height="767" loading="lazy" /></a>
 						<h3><a href="https://rnacentral.org">RNAcentral</a></h3>
 						<p>RNAcentral is the world's largest non-coding RNA sequence database</p>
 					</article>
-					<article class="col-6 col-12-xsmall work-item grow">
-						<a href="https://rfam.org" class="image fit thumb"><img src="images/rfam.png" alt="" /></a>
+					<article class="col-4 col-6-small col-12-xsmall work-item grow">
+						<a href="https://rfam.org" class="image fit thumb"><img src="images/rfam.webp" alt="Rfam logo" width="1000" height="480" loading="lazy" /></a>
 						<h3><a href="https://rfam.org">Rfam</a></h3>
-						<p>Rfam is the RNA families database that contains over 4,000 RNAs and is widely used for genome
+						<p>Rfam is the RNA families database that contains over 4,200 families and is widely used for genome
 							annotation, benchmarking, and algorithm development</p>
 					</article>
-					<article class="col-6 col-12-xsmall work-item grow">
-						<a href="http://rna.bgsu.edu/rna3dhub" class="image fit thumb"><img src="images/rna3dhub.png"
-								alt="" /></a>
-						<h3><a href="http://rna.bgsu.edu/rna3dhub">RNA 3D Hub</a></h3>
+					<article class="col-4 col-6-small col-12-xsmall work-item grow">
+						<a href="https://rna.bgsu.edu/rna3dhub" class="image fit thumb"><img src="images/rna3dhub.webp"
+								alt="An RNA 3D motif and its basepair interaction diagram" width="809" height="471" loading="lazy" /></a>
+						<h3><a href="https://rna.bgsu.edu/rna3dhub">RNA 3D Hub</a></h3>
 						<p>RNA 3D Hub provides annotations of RNA 3D structures, such as RNA 3D motifs, basepair
 							interactions, and non-redundant sets of structures</p>
 					</article>
@@ -166,10 +279,10 @@
 			<section>
 				<h2>Stay in touch ✉️</h2>
 				<ul>
-					<li>Follow on <a href="https://bsky.app/profile/antonipetrov.bsky.social">Bluesky</a> or <a href="https://x.com/AntonIPetrov">Twitter</a></li>
 					<li>Connect on <a href="https://www.linkedin.com/in/aipetrov/">LinkedIn</a></li>
-					<li>Sign up for updates on <a href="https://scholar.google.com/citations?user=PDdl6OcAAAAJ&hl=en">Google Scholar</a></li>
-					<li>Reach out by <a href="mailto:apetrov@riboscope.com">email</a></li>
+					<li>Follow on <a href="https://bsky.app/profile/antonipetrov.bsky.social">Bluesky</a> or <a href="https://x.com/AntonIPetrov">X</a></li>
+					<li>Sign up for updates on <a href="https://scholar.google.com/citations?user=PDdl6OcAAAAJ&amp;hl=en">Google Scholar</a></li>
+					<li>Reach out by <a href="mailto:anton@antonpetrov.com">email</a></li>
 				</ul>
 			</section>
 		</section>
@@ -179,23 +292,39 @@
 	<!-- Footer -->
 	<footer id="footer">
 		<div class="inner" style="text-align: center;">
+			<!-- Twitter, LinkedIn and GitHub icons: Font Awesome Free 5.15.4 (CC BY 4.0, https://fontawesome.com/license/free) -->
 			<ul class="icons">
 				<li>
-					<a href="https://bsky.app/profile/antonipetrov.bsky.social" class="icon">
-						<img style="width:20px; height:20px; opacity: 50%;" src="images/bluesky.png">
+					<a href="https://bsky.app/profile/antonipetrov.bsky.social" class="icon" aria-label="Bluesky">
+						<img style="width:20px; height:20px; opacity: 50%;" src="images/bluesky.png" alt="" />
 						<span class="label">Bluesky</span></a>
 				</li>
-				<li><a href="https://twitter.com/antonipetrov" class="icon brands fa-twitter"><span
-							class="label">Twitter</span></a></li>
-				<li><a href="https://www.linkedin.com/in/aipetrov/" class="icon brands fa-linkedin"><span
-							class="label">Github</span></a></li>
-				<li><a href="https://github.com/antonpetrov" class="icon brands fa-github"><span
-							class="label">Github</span></a></li>
+				<li><a href="https://x.com/AntonIPetrov" class="icon" aria-label="X (Twitter)">
+						<svg class="brand" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true">
+							<path transform="matrix(1 0 0 -1 0 448)"
+								d="M459.4 296.3c0.3 -4.5 0.3 -9.1 0.3 -13.6c0 -138.7 -105.6 -298.6 -298.6 -298.6c-59.5 0 -114.7 17.2 -161.1 47.1c8.4 -1 16.6 -1.3 25.3 -1.3 c49.1 0 94.2 16.6 130.3 44.8c-46.1 1 -84.8 31.2 -98.1 72.8c6.5 -1 13 -1.6 19.8 -1.6c9.4 0 18.8 1.3 27.6 3.6c-48.1 9.7 -84.1 52 -84.1 103v1.3 c14 -7.8 30.2 -12.7 47.4 -13.3c-28.3 18.8 -46.8 51 -46.8 87.4c0 19.5 5.2 37.4 14.3 53c51.7 -63.7 129.3 -105.3 216.4 -109.8c-1.6 7.8 -2.6 15.9 -2.6 24 c0 57.8 46.8 104.9 104.9 104.9c30.2 0 57.5 -12.7 76.7 -33.1c23.7 4.5 46.5 13.3 66.6 25.3c-7.8 -24.4 -24.4 -44.8 -46.1 -57.8c21.1 2.3 41.6 8.1 60.4 16.2 c-14.3 -20.8 -32.2 -39.3 -52.6 -54.3z">
+							</path>
+						</svg>
+						<span class="label">X (Twitter)</span></a></li>
+				<li><a href="https://www.linkedin.com/in/aipetrov/" class="icon" aria-label="LinkedIn">
+						<svg class="brand" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true">
+							<path transform="matrix(1 0 0 -1 0 448)"
+								d="M416 416c17.6 0 32 -14.5 32 -32.3v-383.4c0 -17.8 -14.4 -32.3 -32 -32.3h-384.1c-17.6 0 -31.9 14.5 -31.9 32.3v383.4c0 17.8 14.3 32.3 31.9 32.3h384.1zM135.4 32h0.1v213.8h-66.5v-213.8h66.4zM102.2 275 c21.3 0 38.5 17.2 38.5 38.5c0 21.2 -17.3 38.5 -38.5 38.5c-21.3 0 -38.5 -17.3 -38.5 -38.5s17.2 -38.5 38.5 -38.5zM384.3 32v117.2c0 57.6 -12.5 101.9 -79.7 101.9c-32.3 0 -54 -17.7 -62.9 -34.5h-0.9v29.2h-63.7 v-213.8h66.4v105.8c0 27.9 5.3 54.9 39.9 54.9c34 0 34.5 -31.9 34.5 -56.7v-104h66.4z">
+							</path>
+						</svg>
+						<span class="label">LinkedIn</span></a></li>
+				<li><a href="https://github.com/antonpetrov" class="icon" aria-label="GitHub">
+						<svg class="brand" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" aria-hidden="true">
+							<path transform="matrix(1 0 0 -1 0 448)"
+								d="M165.9 50.6c0 -2 -2.3 -3.6 -5.2 -3.6c-3.3 -0.3 -5.6 1.3 -5.6 3.6c0 2 2.3 3.6 5.2 3.6c3 0.3 5.6 -1.3 5.6 -3.6zM134.8 55.1c0.7 2 3.6 3 6.2 2.3 c3 -0.9 4.9 -3.2 4.3 -5.2c-0.6 -2 -3.6 -3 -6.2 -2c-3 0.6 -5 2.9 -4.3 4.9zM179 56.8c2.9 0.3 5.6 -1 5.9 -2.9c0.3 -2 -1.7 -3.9 -4.6 -4.6 c-3 -0.7 -5.6 0.6 -5.9 2.6c-0.3 2.3 1.7 4.2 4.6 4.9zM244.8 440c138.7 0 251.2 -105.3 251.2 -244c0 -110.9 -67.8 -205.8 -167.8 -239c-12.7 -2.3 -17.3 5.6 -17.3 12.1 c0 8.2 0.3 49.9 0.3 83.6c0 23.5 -7.8 38.5 -17 46.4c55.9 6.3 114.8 14 114.8 110.5c0 27.4 -9.8 41.2 -25.8 58.9c2.6 6.5 11.1 33.2 -2.6 67.9c-20.9 6.6 -69 -27 -69 -27 c-20 5.6 -41.5 8.5 -62.8 8.5s-42.8 -2.9 -62.8 -8.5c0 0 -48.1 33.5 -69 27c-13.7 -34.6 -5.2 -61.4 -2.6 -67.9c-16 -17.6 -23.6 -31.4 -23.6 -58.9c0 -96.2 56.4 -104.3 112.3 -110.5 c-7.2 -6.6 -13.7 -17.7 -16 -33.7c-14.3 -6.6 -51 -17.7 -72.9 20.9c-13.7 23.8 -38.6 25.8 -38.6 25.8c-24.5 0.3 -1.6 -15.4 -1.6 -15.4c16.4 -7.5 27.8 -36.6 27.8 -36.6 c14.7 -44.8 84.7 -29.8 84.7 -29.8c0 -21 0.3 -55.2 0.3 -61.4c0 -6.5 -4.5 -14.4 -17.3 -12.1c-99.7 33.4 -169.5 128.3 -169.5 239.2c0 138.7 106.1 244 244.8 244zM97.2 95.1 c1.3 1.3 3.6 0.6 5.2 -1c1.7 -1.9 2 -4.2 0.7 -5.2c-1.3 -1.3 -3.6 -0.6 -5.2 1c-1.7 1.9 -2 4.2 -0.7 5.2zM86.4 103.2c0.7 1 2.3 1.3 4.3 0.7 c2 -1 3 -2.6 2.3 -3.9c-0.7 -1.4 -2.7 -1.7 -4.3 -0.7c-2 1 -3 2.6 -2.3 3.9zM118.8 67.6c1.3 1.6 4.3 1.3 6.5 -1c2 -1.9 2.6 -4.9 1.3 -6.2 c-1.3 -1.6 -4.2 -1.3 -6.5 1c-2.3 1.9 -2.9 4.9 -1.3 6.2zM107.4 82.3c1.6 1.3 4.2 0.3 5.6 -2c1.6 -2.3 1.6 -4.9 0 -6.2c-1.3 -1 -4 0 -5.6 2.3 c-1.6 2.3 -1.6 4.9 0 5.9z">
+							</path>
+						</svg>
+						<span class="label">GitHub</span></a></li>
 				<li>
-					<a href="https://orcid.org/0000-0001-7279-2682" class="icon">
+					<a href="https://orcid.org/0000-0001-7279-2682" class="icon" aria-label="ORCID">
 						<svg width="20" height="20" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
 							xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 256 256"
-							style="opacity:50%; enable-background:new 0 0 256 256;" xml:space="preserve">
+							style="opacity:50%; enable-background:new 0 0 256 256;" xml:space="preserve" aria-hidden="true">
 							<style type="text/css">
 								.st0 {
 									fill: #A6CE39;
@@ -220,8 +349,8 @@
 						</svg>
 						<span class="label">ORCID</span></a>
 				</li>
-				<li><a href="https://www.webofscience.com/wos/author/record/779" class="icon">
-						<img style="width:20px; height:20px; opacity: 50%;" src="images/publons.png">
+				<li><a href="https://www.webofscience.com/wos/author/record/779" class="icon" aria-label="Web of Science">
+						<img style="width:20px; height:20px; opacity: 50%;" src="images/publons.png" alt="" />
 						<span class="label">Web of Science</span></a>
 				</li>
 			</ul>
@@ -229,30 +358,47 @@
 	</footer>
 
 	<!-- Scripts -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.poptrox.min.js"></script>
-	<script src="assets/js/browser.min.js"></script>
-	<script src="assets/js/breakpoints.min.js"></script>
-	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
 	<script>
-		// Animate counters
-		const counters = document.querySelectorAll('.counter');
-		counters.forEach(counter => {
-			const updateCounter = () => {
-				const target = +counter.getAttribute('data-target');
-				const count = +counter.innerText;
-				const increment = target / 200; // Adjust speed here
+		// Animate counters once they scroll into view
+		(() => {
+			const counters = document.querySelectorAll('.counter');
+			const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-				if (count < target) {
-					counter.innerText = Math.ceil(count + increment);
-					setTimeout(updateCounter, 10);
-				} else {
-					counter.innerText = target.toLocaleString(); // Format numbers
-				}
+			// Without the animation the final numbers in the markup stay as they are
+			if (reducedMotion || !('IntersectionObserver' in window)) return;
+
+			const animateCounter = counter => {
+				const target = +counter.getAttribute('data-target');
+				const duration = 1500; // Adjust speed here
+				const start = performance.now();
+
+				const updateCounter = now => {
+					const progress = Math.min((now - start) / duration, 1);
+					const eased = 1 - Math.pow(1 - progress, 3);
+					counter.innerText = Math.round(target * eased).toLocaleString('en-GB'); // Format numbers
+
+					if (progress < 1) {
+						requestAnimationFrame(updateCounter);
+					}
+				};
+				requestAnimationFrame(updateCounter);
 			};
-			updateCounter();
-		});
+
+			const observer = new IntersectionObserver(entries => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						animateCounter(entry.target);
+						observer.unobserve(entry.target);
+					}
+				});
+			}, { threshold: 0.5 });
+
+			counters.forEach(counter => {
+				counter.innerText = '0';
+				observer.observe(counter);
+			});
+		})();
 	</script>
 </body>
 

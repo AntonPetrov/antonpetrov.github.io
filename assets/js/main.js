@@ -4,114 +4,89 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
-(function($) {
+(function() {
 
-	var $window = $(window),
-		$body = $('body'),
-		$header = $('#header'),
-		$footer = $('#footer'),
-		$main = $('#main'),
+	var body = document.body,
+		header = document.getElementById('header'),
+		footer = document.getElementById('footer'),
+		main = document.getElementById('main'),
+		medium = window.matchMedia('(max-width: 980px)'),
+		mobile = /Android|iPhone|iPad|iPod|Windows Phone|webOS|BlackBerry/i.test(navigator.userAgent)
+			|| (navigator.platform == 'MacIntel' && navigator.maxTouchPoints > 1),
 		settings = {
 
-			// Parallax background effect?
-				parallax: true,
+			// Parallax background effect? (off: the header gradient animates its own position)
+				parallax: false,
 
 			// Parallax factor (lower = more intense, higher = less intense).
 				parallaxFactor: 20
 
 		};
 
-	// Breakpoints.
-		breakpoints({
-			xlarge:  [ '1281px',  '1800px' ],
-			large:   [ '981px',   '1280px' ],
-			medium:  [ '737px',   '980px'  ],
-			small:   [ '481px',   '736px'  ],
-			xsmall:  [ null,      '480px'  ],
-		});
-
 	// Play initial animations on page load.
-		$window.on('load', function() {
+		window.addEventListener('load', function() {
 			window.setTimeout(function() {
-				$body.removeClass('is-preload');
+				body.classList.remove('is-preload');
 			}, 100);
 		});
 
 	// Touch?
-		if (browser.mobile) {
+		if (mobile) {
 
 			// Turn on touch mode.
-				$body.addClass('is-touch');
-
-			// Height fix (mostly for iOS).
-				window.setTimeout(function() {
-					$window.scrollTop($window.scrollTop() + 1);
-				}, 0);
+				body.classList.add('is-touch');
 
 		}
 
-	// Footer.
-		breakpoints.on('<=medium', function() {
-			$footer.insertAfter($main);
-		});
+	// Parallax background.
 
-		breakpoints.on('>medium', function() {
-			$footer.appendTo($header);
-		});
+		// Disable parallax on mobile platforms (= better performance).
+			if (mobile)
+				settings.parallax = false;
 
-	// Header.
+		function parallax() {
+			header.style.backgroundPosition = 'left ' + (-1 * (parseInt(window.scrollY) / settings.parallaxFactor)) + 'px';
+		}
 
-		// Parallax background.
+	// Layout.
+		function layout() {
 
-			// Disable parallax on IE (smooth scrolling is jerky), and on mobile platforms (= better performance).
-				if (browser.name == 'ie'
-				||	browser.mobile)
-					settings.parallax = false;
+			if (medium.matches) {
 
-			if (settings.parallax) {
+				// Footer.
+					main.after(footer);
 
-				breakpoints.on('<=medium', function() {
+				// Header.
+					if (settings.parallax) {
+						window.removeEventListener('scroll', parallax);
+						header.style.backgroundPosition = '';
+					}
 
-					$window.off('scroll.strata_parallax');
-					$header.css('background-position', '');
+			}
+			else {
 
-				});
+				// Footer.
+					header.append(footer);
 
-				breakpoints.on('>medium', function() {
-
-					$header.css('background-position', 'left 0px');
-
-					$window.on('scroll.strata_parallax', function() {
-						$header.css('background-position', 'left ' + (-1 * (parseInt($window.scrollTop()) / settings.parallaxFactor)) + 'px');
-					});
-
-				});
-
-				$window.on('load', function() {
-					$window.triggerHandler('scroll');
-				});
+				// Header.
+					if (settings.parallax) {
+						window.addEventListener('scroll', parallax);
+						parallax();
+					}
 
 			}
 
-	// Main Sections: Two.
+		}
 
-		// Lightbox gallery.
-			$window.on('load', function() {
+		if (header && footer && main) {
 
-				$('#two').poptrox({
-					caption: function($a) { return $a.next('h3').text(); },
-					overlayColor: '#2c2c2c',
-					overlayOpacity: 0.85,
-					popupCloserText: '',
-					popupLoaderText: '',
-					selector: '.work-item a.image',
-					usePopupCaption: true,
-					usePopupDefaultStyling: false,
-					usePopupEasyClose: false,
-					usePopupNav: true,
-					windowMargin: (breakpoints.active('<=small') ? 0 : 50)
-				});
+			layout();
 
-			});
+			if (medium.addEventListener)
+				medium.addEventListener('change', layout);
+			else
+				medium.addListener(layout);
 
-})(jQuery);
+		}
+
+})();
